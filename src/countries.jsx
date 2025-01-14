@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import CountryCard from "./CountryCard";
+import React, { useEffect, useState } from 'react';
+import CountryCard from './CountryCard';
 
 const API_URL = "https://countries-search-data-prod-nnjjst7g5q-el.a.run.app/countries";
 
@@ -44,9 +44,13 @@ const Countries = () => {
         className="search-box"
       />
       <div className="country-list">
-        {filteredCountries.map((country, index) => (
-          <CountryCard key={index} name={country.common} flagUrl={country.png} />
-        ))}
+        {filteredCountries.length > 0 ? (
+          filteredCountries.map((country, index) => (
+            <CountryCard key={index} name={country.common} flagUrl={country.png} />
+          ))
+        ) : (
+          <p>No countries match your search or no data available.</p>
+        )}
       </div>
     </div>
   );

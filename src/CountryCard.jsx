@@ -5,8 +5,8 @@ import './CountryCard.css';
 const CountryCard = ({ name, flagUrl }) => {
   return (
     <div className="countryCard">
+      <img src={flagUrl} alt={`Flag of ${name}`} className="countryFlag" />
       <h3>{name}</h3>
-      <img src={flagUrl} alt={`${name} flag`} className="countryFlag" />
     </div>
   );
 };
