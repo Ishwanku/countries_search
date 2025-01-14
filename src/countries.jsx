@@ -16,8 +16,9 @@ const Countries = () => {
         }
         const data = await response.json();
         setCountries(data);
+        console.log("Countries fetched successfully:", data);
       } catch (error) {
-        console.error('Error fetching countries:', error);
+        console.error("Error fetching countries:", error);
       }
     };
 
@@ -30,7 +31,7 @@ const Countries = () => {
 
   useEffect(() => {
     if (filteredCountries.length === 0) {
-      console.log('No countries match your search or no data available.');
+      console.log("No countries match your search or no data available.");
     }
   }, [filteredCountries]);
 
@@ -44,9 +45,11 @@ const Countries = () => {
         className="search-box"
       />
       <div className="country-list">
-        {filteredCountries.map((country, index) => (
-          <CountryCard key={index} name={country.common} flagUrl={country.png} />
-        ))}
+        {filteredCountries.length > 0 ? (
+          filteredCountries.map((country, index) => (
+            <CountryCard key={index} name={country.common} flagUrl={country.png} />
+          ))
+        ) : null}
       </div>
     </div>
   );
