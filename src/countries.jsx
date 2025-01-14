@@ -33,7 +33,6 @@ const Countries = () => {
           <CountryCard key={index} name={country.common} flagUrl={country.png} />
         ))}
       </div>
-      {filteredCountries.length === 0 && <p>No countries match your search or no data available.</p>}
     </div>
   );
 };
