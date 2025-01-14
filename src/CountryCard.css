@@ -1,4 +1,4 @@
-.country-card {
+.countryCard {
   border: 1px solid #ccc;
   border-radius: 8px;
   margin: 10px;
@@ -7,7 +7,7 @@
   text-align: center;
 }
 
-.country-flag {
+.countryFlag {
   width: 100%;
   height: auto;
   border-radius: 4px;
