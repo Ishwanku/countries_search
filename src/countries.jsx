@@ -44,13 +44,6 @@ const Countries = () => {
         className="search-box"
       />
       <div className="country-list">
-        {filteredCountries.length > 0 ? (
-          filteredCountries.map((country, index) => (
-            <CountryCard key={index} name={country.common} flagUrl={country.png} />
-          ))
-        ) : (
-          <p>No countries match your search or no data available.</p>
-        )}
       </div>
     </div>
   );
