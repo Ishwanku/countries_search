@@ -1,0 +1,16 @@
+.App {
+  text-align: center;
+}
+
+.search-box {
+  margin: 20px auto;
+  padding: 10px;
+  font-size: 16px;
+  width: 300px;
+}
+
+.country-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
