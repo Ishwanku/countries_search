@@ -13,7 +13,6 @@ const Countries = () => {
           "https://countries-search-data-prod-nnjjst7g5q-el.a.run.app/countries"
         );
         const data = await response.json();
-        // Sort countries alphabetically by their common name for better display
         const sortedData = data.sort((a, b) =>
           a.common.localeCompare(b.common)
         );
@@ -30,7 +29,7 @@ const Countries = () => {
     ? countries.filter((country) =>
         country.common.toLowerCase().includes(searchTerm.toLowerCase())
       )
-    : countries; // Show all countries if there's no search term
+    : countries;
 
   return (
     <div className="app">

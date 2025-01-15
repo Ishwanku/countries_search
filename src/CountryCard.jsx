@@ -1,6 +1,7 @@
 import React from "react";
 import "./CountryCard.css";
 
+
 const CountryCard = ({ flag, name }) => {
   return (
     <div className="countryCard">
