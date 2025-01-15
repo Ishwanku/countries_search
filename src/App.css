@@ -30,8 +30,9 @@ h1 {
 }
 
 .countriesContainer {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  display:grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  align-items: center;
   gap: 20px;
   justify-content: center;
   padding: 20px;
