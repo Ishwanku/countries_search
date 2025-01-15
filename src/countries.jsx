@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useMemo } from 'react';
 import CountryCard from './CountryCard';
 
-const API_URL = "https://countries-search-data-prod-nnjjst7g5q-el.a.run.app/countries";
+const API_URL = "https://0b9f457a-c7f4-4a28-9f68-2fe10314cedd.mock.pstmn.io/crio";
 
 const Countries = () => {
   const [countries, setCountries] = useState([]);
@@ -13,16 +13,15 @@ const Countries = () => {
     const fetchCountries = async () => {
       try {
         const response = await fetch(API_URL);
-        
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
         const data = await response.json();
         setCountries(data);
         console.log("Countries fetched successfully:", data);
-      } catch (error) {
-        console.error("Error fetching countries:", error);
-        setError(error.message);
+      } catch (err) {
+        console.error("Error fetching countries:", err);
+        setError("Failed to load countries. Please try again later.");
       } finally {
         setLoading(false);
       }
@@ -48,8 +47,7 @@ const Countries = () => {
         aria-label="Search for a country"
       />
       {loading && <p>Loading countries...</p>}
-      {error && <p>Error: {error}</p>}
-      
+      {error && <p>{error}</p>}
       <div className="country-list">
         {filteredCountries.length > 0 ? (
           filteredCountries.map((country, index) => (
