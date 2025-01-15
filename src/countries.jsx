@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useMemo } from 'react';
-import CountryCard from './CountryCard'; 
+import CountryCard from './CountryCard';
 
-const API_URL = "https://countries-search-data-prod-nnnjjs5q-el.country.app/countries";
+const API_URL = "https://countries-search-data-prod-nnjjst7g5q-el.a.run.app/countries";
 
 const Countries = () => {
   const [countries, setCountries] = useState([]);
@@ -21,7 +21,7 @@ const Countries = () => {
         setCountries(data);
         console.log("Countries fetched successfully:", data);
       } catch (error) {
-        console.error("Error fetching countries:", error); // Log error to the console
+        console.error("Error fetching countries:", error);
         setError(error.message);
       } finally {
         setLoading(false);
@@ -34,7 +34,7 @@ const Countries = () => {
   const filteredCountries = useMemo(() =>
     countries.filter(country =>
       country.common.toLowerCase().includes(search.toLowerCase())
-    ).slice(0, 3), [countries, search] 
+    ), [countries, search]
   );
 
   return (
@@ -53,7 +53,7 @@ const Countries = () => {
       <div className="country-list">
         {filteredCountries.length > 0 ? (
           filteredCountries.map((country, index) => (
-            <CountryCard key={index} name={country.common} flagUrl={country.png} />
+            <CountryCard key={index} name={country.common} flagUrl={country.png} /> // <-- Display CountryCard components
           ))
         ) : (
           !loading && <p>No countries match your search or no data available.</p>
