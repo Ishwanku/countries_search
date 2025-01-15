@@ -31,7 +31,7 @@ const Countries = () => {
     fetchCountries();
   }, []);
 
-  const filteredCountries = useMemo(() => 
+  const filteredCountries = useMemo(() =>
     countries.filter(country =>
       country.common.toLowerCase().includes(search.toLowerCase())
     ), [countries, search]
@@ -53,7 +53,7 @@ const Countries = () => {
       <div className="country-list">
         {filteredCountries.length > 0 ? (
           filteredCountries.map((country, index) => (
-            <CountryCard key={index} name={country.common} flagUrl={country.png} />
+            <CountryCard key={index} name={country.common} flagUrl={country.png} /> // <-- Display CountryCard components
           ))
         ) : (
           !loading && <p>No countries match your search or no data available.</p>
