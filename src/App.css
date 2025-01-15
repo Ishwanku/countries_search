@@ -1,22 +1,5 @@
-
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-.app {
+.App {
   text-align: center;
-  padding: 20px;
-  background-color: #f9f9f9;
-  min-height: 100vh;
-}
-
-h1 {
-  font-size: 2rem;
-  margin-bottom: 20px;
-  color: #333;
 }
 
 .searchInput {
@@ -30,11 +13,9 @@ h1 {
 }
 
 .countriesContainer {
-  display:grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  align-items: center;
-  gap: 20px;
-  justify-content: center;
-  padding: 20px;
+  display: flex;
+  flex-wrap:wrap;
+  /* gap: 20px; */
+  /* justify-content: center;
+  padding: 20px; */
 }
-
