@@ -1,17 +1,13 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import './CountryCard.css';
+import React from "react";
+import "./CountryCard.css";
 
-const CountryCard = ({ name, flagUrl }) => (
-  <div className="countryCard">
-    <img src={flagUrl} alt={`Flag of ${name}`} className="countryFlag" />
-    <h3>{name}</h3>
-  </div>
-);
-
-CountryCard.propTypes = {
-  name: PropTypes.string.isRequired,
-  flagUrl: PropTypes.string.isRequired,
+const CountryCard = ({ flag, name }) => {
+  return (
+    <div className="countryCard">
+      <img src={flag} alt={`${name} flag`} className="countryFlag" />
+      <p className="countryName">{name}</p>
+    </div>
+  );
 };
 
 export default CountryCard;

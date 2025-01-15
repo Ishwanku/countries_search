@@ -1,61 +1,55 @@
-import React, { useEffect, useState, useMemo } from 'react';
-import CountryCard from './CountryCard';
-
-const API_URL = "https://0b9f457a-c7f4-4a28-9f68-2fe10314cedd.mock.pstmn.io/crio";
+import React, { useState, useEffect } from "react";
+import CountryCard from "./CountryCard";
+import "./App.css";
 
 const Countries = () => {
   const [countries, setCountries] = useState([]);
-  const [search, setSearch] = useState('');
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
     const fetchCountries = async () => {
       try {
-        const response = await fetch(API_URL);
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
+        const response = await fetch(
+          "https://countries-search-data-prod-nnjjst7g5q-el.a.run.app/countries"
+        );
         const data = await response.json();
-        setCountries(data);
-        console.log("Countries fetched successfully:", data);
-      } catch (err) {
-        console.error("Error fetching countries:", err);
-        setError("Failed to load countries. Please try again later.");
-      } finally {
-        setLoading(false);
+        // Sort countries alphabetically by their common name for better display
+        const sortedData = data.sort((a, b) =>
+          a.common.localeCompare(b.common)
+        );
+        setCountries(sortedData);
+      } catch (error) {
+        console.error("Error fetching countries:", error);
       }
     };
 
     fetchCountries();
   }, []);
 
-  const filteredCountries = useMemo(() =>
-    countries.filter(country =>
-      country.common.toLowerCase().includes(search.toLowerCase())
-    ), [countries, search]
-  );
+  const filteredCountries = searchTerm
+    ? countries.filter((country) =>
+        country.common.toLowerCase().includes(searchTerm.toLowerCase())
+      )
+    : countries; // Show all countries if there's no search term
 
   return (
-    <div className="countries">
+    <div className="app">
+      <h1>Country Search</h1>
       <input
         type="text"
-        placeholder="Search for a country"
-        value={search}
-        onChange={(e) => setSearch(e.target.value)}
-        className="search-box"
-        aria-label="Search for a country"
+        placeholder="Search for a country..."
+        value={searchTerm}
+        onChange={(e) => setSearchTerm(e.target.value)}
+        className="searchInput"
       />
-      {loading && <p>Loading countries...</p>}
-      {error && <p>{error}</p>}
-      <div className="country-list">
-        {filteredCountries.length > 0 ? (
-          filteredCountries.map((country, index) => (
-            <CountryCard key={index} name={country.common} flagUrl={country.png} />
-          ))
-        ) : (
-          !loading && <p>No countries match your search or no data available.</p>
-        )}
+      <div className="countriesContainer">
+        {filteredCountries.map((country) => (
+          <CountryCard
+            key={country.common}
+            flag={country.png}
+            name={country.common}
+          />
+        ))}
       </div>
     </div>
   );
