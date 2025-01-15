@@ -53,7 +53,7 @@ const Countries = () => {
       <div className="country-list">
         {filteredCountries.length > 0 ? (
           filteredCountries.map((country, index) => (
-            <CountryCard key={index} name={country.common} flagUrl={country.png} /> // <-- Display CountryCard components
+            <CountryCard key={index} name={country.common} flagUrl={country.png} />
           ))
         ) : (
           !loading && <p>No countries match your search or no data available.</p>
