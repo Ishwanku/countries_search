@@ -14,8 +14,14 @@
 
 .countriesContainer {
   display: flex;
-  flex-wrap:wrap;
-  /* gap: 20px; */
-  /* justify-content: center;
-  padding: 20px; */
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  padding: 20px;
+}
+
+.countryContainer {
+  flex: 1 1 calc(14.28% - 20px); 
+  box-sizing: border-box;
+  max-width: calc(14.28% - 20px);
 }
