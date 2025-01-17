@@ -1,6 +1,8 @@
 
 .countryCard {
   background: #ffffff;
+  height: 200px;
+  width: 180px;
   border: 1px solid #ddd;
   border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -15,8 +17,9 @@
 }
 
 .countryFlag {
-  width: 100%;
+  width: 150px;
   height: 100px;
+  padding: 10px;
   object-fit: cover;
   border-bottom: 1px solid #ddd;
 }
