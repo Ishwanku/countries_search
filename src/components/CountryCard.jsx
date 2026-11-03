@@ -6,7 +6,7 @@ const CountryCard = ({ name, flagUrl }) => {
   return (
     <div className="countryCard">
       <img src={flagUrl} alt={`Flag of ${name}`} className="country-flag" />
-      <h3 className="country-name">{name}</h3>
+      <h2 className="country-name">{name}</h2>
     </div>
   );
 };
