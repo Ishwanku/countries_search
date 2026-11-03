@@ -4,7 +4,7 @@ import './CountryCard.css';
 
 const CountryCard = ({ name, flagUrl }) => {
   return (
-    <div className="country-card">
+    <div className="countryCard">
       <img src={flagUrl} alt={`Flag of ${name}`} className="country-flag" />
       <h3 className="country-name">{name}</h3>
     </div>
